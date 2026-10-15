@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: shortflow-studio
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: HOSTED
+        value: "true"
+      - key: NODE_ENV
+        value: production
+      - key: ACCESS_PASSWORD
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: VIDEO_SECOND_KRW
+        value: "70"
+      - key: OTHER_ESTIMATE_KRW
+        value: "100"
