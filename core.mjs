@@ -1,4 +1,4 @@
-export const defaults={topic:'신기한 기술·물건의 작동 원리',channelName:'원리 한 스푼',textModel:'gemini-2.5-flash',videoModel:'veo-3.1-fast-generate-preview',voice:'Kore',videoRate:'',otherEstimate:'',trend:false};
+export const defaults={topic:'신기한 기술·물건의 작동 원리',channelName:'원리 한 스푼',textModel:'gemini-3.8-flash',videoModel:'veo-3.1-fast-generate-preview',voice:'Kore',videoRate:'',otherEstimate:'',trend:false};
 export function estimate(s,n=4){if(!Number(s.videoRate)||Number(s.videoRate)<0)return null;return Math.round((Number(s.videoRate)*8*n+Math.max(0,Number(s.otherEstimate)||0))*100)/100;}
 export function validateDraft(d){if(!d.title||!Array.isArray(d.scenes)||d.scenes.length!==4)throw Error('대본 형식 오류: 장면은 4개여야 합니다.');for(const s of d.scenes)if(typeof s.narration!=='string'||!s.narration.trim()||typeof s.prompt!=='string'||!s.prompt.trim())throw Error('장면 지시문 또는 내레이션이 비어 있습니다.');return d;}
 export function assEscape(s){return String(s).replace(/[{}\\]/g,'').replace(/\r?\n/g,'\\N');}
